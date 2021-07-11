@@ -1,0 +1,336 @@
+[
+  {
+    "userId": "5ff804cb71d84a325143d49f",
+    "userType": "ADMIN",
+    "userName": "ScrapQ Super Admin",
+    "userMobile": "9100086851",
+    "children": [
+      {
+        "userId": "5eb10f2b2d7a1da36908ac3b",
+        "userType": "MASTERFRANCHISE",
+        "userName": "MasterFranchise jane doe",
+        "userMobile": "4111423042",
+        "ownerId": "5ff804cb71d84a325143d49f",
+        "ownerName": "ScrapQ Super Admin",
+        "ownerType": "ADMIN",
+        "ownerMobile": "9100086851",
+        "children": [
+          {
+            "userId": "6034cae933049f072eb5975d",
+            "userType": "WHOLESALER",
+            "userName": "ABC Partner",
+            "userMobile": "09110460002",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6035edd133049f072eb59890",
+                "userType": "AGENT",
+                "userName": "ABC REO",
+                "userMobile": "2154632165",
+                "ownerId": "6034cae933049f072eb5975d",
+                "ownerName": "ABC Partner",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09110460002"
+              }
+            ]
+          },
+          {
+            "userId": "6023bb62d05a5b2af0f56a02",
+            "userType": "WHOLESALER",
+            "userName": "ABS Trades",
+            "userMobile": "09535868722",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023cd53d05a5b2af0f56a44",
+                "userType": "AGENT",
+                "userName": "P Shivakumar",
+                "userMobile": "8058687200",
+                "ownerId": "6023bb62d05a5b2af0f56a02",
+                "ownerName": "ABS Trades",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09535868722"
+              }
+            ]
+          },
+          {
+            "userId": "6023ba16d05a5b2af0f569ea",
+            "userType": "WHOLESALER",
+            "userName": "Balaji Agencies",
+            "userMobile": "09844481202",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023ca0bd05a5b2af0f56a3a",
+                "userType": "AGENT",
+                "userName": "Manikantha M",
+                "userMobile": "8044812030",
+                "ownerId": "6023ba16d05a5b2af0f569ea",
+                "ownerName": "Balaji Agencies",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09844481202"
+              }
+            ]
+          },
+          {
+            "userId": "602f6555d05a5b16ed3830dc",
+            "userType": "WHOLESALER",
+            "userName": "Flat Partner",
+            "userMobile": "08861897999",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "602f6679d05a5b16ed3830e4",
+                "userType": "AGENT",
+                "userName": "Flat REO",
+                "userMobile": "9100921400",
+                "ownerId": "602f6555d05a5b16ed3830dc",
+                "ownerName": "Flat Partner",
+                "ownerType": "PARTNER",
+                "ownerMobile": "08861897999"
+              }
+            ]
+          },
+          {
+            "userId": "6023b964d05a5b2af0f569de",
+            "userType": "WHOLESALER",
+            "userName": "Gokul Enterprises WS",
+            "userMobile": "09448293136",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023ce37d05a5b2af0f56a48",
+                "userType": "AGENT",
+                "userName": "Chetan Kumar S B",
+                "userMobile": "8082931371",
+                "ownerId": "6023b964d05a5b2af0f569de",
+                "ownerName": "Gokul Enterprises WS",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09448293136"
+              }
+            ]
+          },
+          {
+            "userId": "602f58edd05a5b16ed3830c8",
+            "userType": "WHOLESALER",
+            "userName": "Mahaa",
+            "userMobile": "09652888840",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "602f599ed05a5b16ed3830ce",
+                "userType": "AGENT",
+                "userName": "Niranj",
+                "userMobile": "9652888840",
+                "ownerId": "602f58edd05a5b16ed3830c8",
+                "ownerName": "Mahaa",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09652888840"
+              }
+            ]
+          },
+          {
+            "userId": "6023ba7ed05a5b2af0f569f6",
+            "userType": "WHOLESALER",
+            "userName": "Maruthi Enterprises",
+            "userMobile": "09108220038",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042"
+          },
+          {
+            "userId": "6023ba4dd05a5b2af0f569f0",
+            "userType": "WHOLESALER",
+            "userName": "SSV Enterprises",
+            "userMobile": "09449986933",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023caf4d05a5b2af0f56a3d",
+                "userType": "AGENT",
+                "userName": "Jagadeesh M",
+                "userMobile": "8082200391",
+                "ownerId": "6023ba4dd05a5b2af0f569f0",
+                "ownerName": "SSV Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09449986933"
+              },
+              {
+                "userId": "6023d1ccd05a5b2af0f56a4f",
+                "userType": "AGENT",
+                "userName": "Jagadish K R",
+                "userMobile": "8099869381",
+                "ownerId": "6023ba4dd05a5b2af0f569f0",
+                "ownerName": "SSV Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09449986933"
+              }
+            ]
+          },
+          {
+            "userId": "6023bb9cd05a5b2af0f56a08",
+            "userType": "WHOLESALER",
+            "userName": "Sekar Bottle Supplies",
+            "userMobile": "09845935477",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023d259d05a5b2af0f56a53",
+                "userType": "AGENT",
+                "userName": "Karthik Kumar",
+                "userMobile": "8059354701",
+                "ownerId": "6023bb9cd05a5b2af0f56a08",
+                "ownerName": "Sekar Bottle Supplies",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09845935477"
+              }
+            ]
+          },
+          {
+            "userId": "6023bf13d05a5b2af0f56a14",
+            "userType": "WHOLESALER",
+            "userName": "Shiva Enterprises",
+            "userMobile": "09945665511",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "602d051ad05a5b573367cda8",
+                "userType": "AGENT",
+                "userName": "GST REO test",
+                "userMobile": "6237125376",
+                "ownerId": "6023bf13d05a5b2af0f56a14",
+                "ownerName": "Shiva Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09945665511"
+              },
+              {
+                "userId": "6023d670d05a5b2af0f56a5b",
+                "userType": "AGENT",
+                "userName": "Mani",
+                "userMobile": "8021013314",
+                "ownerId": "6023bf13d05a5b2af0f56a14",
+                "ownerName": "Shiva Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09945665511"
+              }
+            ]
+          },
+          {
+            "userId": "6023bc5dd05a5b2af0f56a0e",
+            "userType": "WHOLESALER",
+            "userName": "Sri Mahalakshmi Traders",
+            "userMobile": "08660266475",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023d310d05a5b2af0f56a57",
+                "userType": "AGENT",
+                "userName": "G Nagaraja",
+                "userMobile": "8002664712",
+                "ownerId": "6023bc5dd05a5b2af0f56a0e",
+                "ownerName": "Sri Mahalakshmi Traders",
+                "ownerType": "PARTNER",
+                "ownerMobile": "08660266475"
+              }
+            ]
+          },
+          {
+            "userId": "60264040d05a5b5b5a01d431",
+            "userType": "WHOLESALER",
+            "userName": "Test Partner Salaried no selection",
+            "userMobile": "04343434343",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042"
+          },
+          {
+            "userId": "602f731cd05a5b16ed3830fb",
+            "userType": "WHOLESALER",
+            "userName": "Test partner",
+            "userMobile": "00904887423",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042"
+          },
+          {
+            "userId": "6023baa8d05a5b2af0f569fc",
+            "userType": "WHOLESALER",
+            "userName": "Veerabhadra Enterprises",
+            "userMobile": "09632262211",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023cba1d05a5b2af0f56a40",
+                "userType": "AGENT",
+                "userName": "B Govindharaj",
+                "userMobile": "8022622142",
+                "ownerId": "6023baa8d05a5b2af0f569fc",
+                "ownerName": "Veerabhadra Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09632262211"
+              }
+            ]
+          },
+          {
+            "userId": "6023b9e8d05a5b2af0f569e4",
+            "userType": "WHOLESALER",
+            "userName": "Vishnu Enterprises",
+            "userMobile": "09071226307",
+            "ownerId": "5eb10f2b2d7a1da36908ac3b",
+            "ownerName": "MasterFranchise jane doe",
+            "ownerType": "MASTERFRANCHISE",
+            "ownerMobile": "4111423042",
+            "children": [
+              {
+                "userId": "6023ceefd05a5b2af0f56a4b",
+                "userType": "AGENT",
+                "userName": "K Shankra",
+                "userMobile": "8002263051",
+                "ownerId": "6023b9e8d05a5b2af0f569e4",
+                "ownerName": "Vishnu Enterprises",
+                "ownerType": "PARTNER",
+                "ownerMobile": "09071226307"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
