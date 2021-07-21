@@ -12,9 +12,13 @@ fetch("data/org-tree-data.json")
 
 var nodes = []
 var nodeDict = {}
+var location_map = []
 
 function setData(node){
-    console.log(nodeDict[node]);
+    // console.log(nodeDict[node]);
+    location_map = [];
+    locationTraverse(nodeDict[node]);
+    
     var locations = [
         ['Bondi Beach', -33.890542, 151.274856, 4],
         ['Coogee Beach', -33.923036, 151.259052, 5],
@@ -22,8 +26,23 @@ function setData(node){
         ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
         ['Maroubra Beach', -33.950198, 151.259302, 1]
       ];
-    localStorage["data"]  = JSON.stringify(locations);
+    localStorage["data"]  = JSON.stringify(location_map);
 }
+
+function locationTraverse(node){
+    var temp ;
+    // console.log(node.latitude);
+    // console.log(node.longitude,"helllllllllllllllllllllllllllll");
+    temp = [node.userName,node.latitude,node.longitude];
+    // console.log(temp);
+    location_map.push(temp);
+    if('children' in node){
+        node.children.forEach(element => {
+            locationTraverse(element);
+        });
+    }
+}
+
 
 function traverse(node,level){
 
@@ -33,8 +52,11 @@ function traverse(node,level){
     temp = {
             "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
             "img": "https://cdn.balkan.app/shared/3.jpg","mobile":node.userMobile,
-            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>hello</a>`
+            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>hello</a>`,
+            "latitude":node.latitude,
+            "longitude":node.longitude,
         };
+    // console.log(temp);
 
     nodes.push(temp)
     if('children' in node){
@@ -90,6 +112,8 @@ angular.
     component('chartOrg', {
         templateUrl: 'chart-org/chart-org.template.html' ,
         controller: function chartOrgController(){
+            var tags_check;
+            tags_check = {};
             for(var teee=1;teee<=max_level;teee++)
             {
                 var name_string = "node"+'_'+teee.toString();
@@ -101,11 +125,17 @@ angular.
                 OrgChart.templates[name_string].node = `<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="${stroke_color}"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>`
                 // console.log(stroke_color,"strokee colorrr");
                 // OrgChart.templates.name_string.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="black"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
-               
+                var temp;
+                var curr_level = teee.toString();
+                temp = {template:name_string};
+                tags_check[curr_level]=temp;
             
             }   
-        
+            
+           
+            
             this.chart = new OrgChart(document.getElementById("hello"), {
+
                 mouseScrool: OrgChart.action.scroll,
                 // gives different hierarchy mixed
                 layout: OrgChart.mixed, 
@@ -115,27 +145,16 @@ angular.
 
                 template: "myTemplate",
                 
-                tags :{
-                    "1":{
-                        template:"node_1"
-                    },
-                    "2":{
-                        template:"node_2"
-                    },
-                    "3":{
-                        template:"node_3"
-                    },
-                    "4":{
-                        template:"node_4"
-                    },
-                },
+                tags : tags_check,
                 miniMap: true,
                 nodeBinding: {
                     field_0: "name",
                     field_2:"work",
                     field_1:"mobile",
                     img_0 : "img",
-                    field_3:"link"
+                    field_3:"link",
+                    field_4:"latitude",
+                    field_5:"longitude"
                     
                 },
                 toolbar: {
@@ -146,6 +165,11 @@ angular.
                   },
                 nodes: nodes
             });
+
+            // console.log(this.chart._layoutConfigs["base"]["orientation"]);
+            // this.chart._layoutConfigs["base"]["orientation"] = 3;
+            // console.log(this.chart._layoutConfigs["base"]["orientation"]);
+            
 
 
             this.chart.on('field', function(sender, args){
