@@ -1,10 +1,4 @@
 {
-  "_args": [
-    [
-      "angular@1.8.2",
-      "/home/anudeep/scrapQ/orgChart/project"
-    ]
-  ],
   "_from": "angular@1.8.2",
   "_id": "angular@1.8.2",
   "_inBundle": false,
@@ -22,11 +16,13 @@
     "fetchSpec": "1.8.2"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
   "_resolved": "https://registry.npmjs.org/angular/-/angular-1.8.2.tgz",
-  "_spec": "1.8.2",
-  "_where": "/home/anudeep/scrapQ/orgChart/project",
+  "_shasum": "5983bbb5a9fa63e213cb7749199e0d352de3a2f1",
+  "_spec": "angular@1.8.2",
+  "_where": "/home/diraac/scrapQ/orgChart/project",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"
@@ -34,6 +30,8 @@
   "bugs": {
     "url": "https://github.com/angular/angular.js/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "HTML enhanced for web apps",
   "homepage": "http://angularjs.org",
   "keywords": [

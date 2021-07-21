@@ -7,17 +7,35 @@ fetch("data/org-tree-data.json")
         return resp.json();
     })
     .then(function(data){
-        console.log(data);
         traverse(data[0],1);
-        console.log(max_level,"maxlevel");
     });
 
 var nodes = []
+var nodeDict = {}
+
+function setData(node){
+    console.log(nodeDict[node]);
+    var locations = [
+        ['Bondi Beach', -33.890542, 151.274856, 4],
+        ['Coogee Beach', -33.923036, 151.259052, 5],
+        ['Cronulla Beach', -34.028249, 151.157507, 3],
+        ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
+        ['Maroubra Beach', -33.950198, 151.259302, 1]
+      ];
+    localStorage["data"]  = JSON.stringify(locations);
+}
+
 function traverse(node,level){
+
+    nodeDict[node.userId] = node;
+
     var temp;
-   
-    temp = {"id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],"img": "https://cdn.balkan.app/shared/3.jpg","mobile":node.userMobile,"link":'<a target="_blank" href=https://www.google.com>hello</a>'};
-    // console.log(node.children)
+    temp = {
+            "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
+            "img": "https://cdn.balkan.app/shared/3.jpg","mobile":node.userMobile,
+            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>hello</a>`
+        };
+
     nodes.push(temp)
     if('children' in node){
         node.children.forEach(element => {
@@ -28,10 +46,6 @@ function traverse(node,level){
             }
         });
     }
-    // for(var child in node.children){
-    //     console.log("Children: ", child);
-    //     traverse(child, node.userId);
-    // }
 }
 
 
@@ -76,13 +90,10 @@ angular.
     component('chartOrg', {
         templateUrl: 'chart-org/chart-org.template.html' ,
         controller: function chartOrgController(){
-
-            console.log(nodes);
             for(var teee=1;teee<=max_level;teee++)
             {
                 var name_string = "node"+'_'+teee.toString();
-                console.log(name_string);
-                // OrgChart.templates.name_string = Object.assign({}, OrgChart.templates.ula);
+                    // OrgChart.templates.name_string = Object.assign({}, OrgChart.templates.ula);
                 OrgChart.templates[name_string] = Object.assign({}, OrgChart.templates.ula);
                 var stroke_color = getRandomColor()
 
