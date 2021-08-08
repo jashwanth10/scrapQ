@@ -110,26 +110,10 @@ function getRandomColor() {
     return color;
   }
 var current = 0;
+var tags_check;
+tags_check = {};
 function toggle_button(){
-    var tags_check;
-    tags_check = {};
-    for(var teee=1;teee<=max_level;teee++)
-    {
-        var name_string = "node"+'_'+teee.toString();
-            // OrgChart.templates.name_string = Object.assign({}, OrgChart.templates.ula);
-        OrgChart.templates[name_string] = Object.assign({}, OrgChart.templates.ula);
-        var stroke_color = getRandomColor()
-
-        // OrgChart.templates[name_string].node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="pink"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
-        OrgChart.templates[name_string].node = `<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="${stroke_color}"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>`
-        // console.log(stroke_color,"strokee colorrr");
-        // OrgChart.templates.name_string.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="black"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
-        var temp;
-        var curr_level = teee.toString();
-        temp = {template:name_string};
-        tags_check[curr_level]=temp;
-    
-    }
+    console.log(tags_check,"tags_check");
     if(current ==0 )
     {
         var chart = new OrgChart(document.getElementById("hello"), {
@@ -208,8 +192,8 @@ angular.
     component('chartOrg', {
         templateUrl: 'chart-org/chart-org.template.html' ,
         controller: function chartOrgController(){
-            var tags_check;
-            tags_check = {};
+            // var tags_check;
+            // tags_check = {};
             for(var teee=1;teee<=max_level;teee++)
             {
                 var name_string = "node"+'_'+teee.toString();
