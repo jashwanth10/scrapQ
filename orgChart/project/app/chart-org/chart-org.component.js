@@ -33,7 +33,12 @@ function locationTraverse(node){
     var temp ;
     // console.log(node.latitude);
     // console.log(node.longitude,"helllllllllllllllllllllllllllll");
-    temp = [node.userName,node.latitude,node.longitude];
+    // temp = [node.userName,node.latitude,node.longitude,node.img];
+
+
+    // for checking purpose, for usage uncomment above one
+
+    temp = [node.userName,Math.random()*100,Math.random()*100,"https://cdn.balkan.app/shared/3.jpg"]
     // console.log(temp);
     location_map.push(temp);
     if('children' in node){
@@ -51,11 +56,12 @@ function traverse(node,level){
     var temp;
     temp = {
             "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
-            "img": "https://cdn.balkan.app/shared/3.jpg","mobile":node.userMobile,
-            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>hello</a>`,
+            "img": "https://cdn.balkan.app/shared/3.jpg","mobile":"Mobile:"+ node.userMobile,
+            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>Location</a>`,
             "latitude":node.latitude,
             "longitude":node.longitude,
         };
+    // for img node.img should be used if we have images
     // console.log(temp);
 
     nodes.push(temp)
@@ -103,8 +109,98 @@ function getRandomColor() {
     }
     return color;
   }
-  
-  
+var current = 0;
+function toggle_button(){
+    var tags_check;
+    tags_check = {};
+    for(var teee=1;teee<=max_level;teee++)
+    {
+        var name_string = "node"+'_'+teee.toString();
+            // OrgChart.templates.name_string = Object.assign({}, OrgChart.templates.ula);
+        OrgChart.templates[name_string] = Object.assign({}, OrgChart.templates.ula);
+        var stroke_color = getRandomColor()
+
+        // OrgChart.templates[name_string].node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="pink"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
+        OrgChart.templates[name_string].node = `<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="${stroke_color}"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>`
+        // console.log(stroke_color,"strokee colorrr");
+        // OrgChart.templates.name_string.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="black"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
+        var temp;
+        var curr_level = teee.toString();
+        temp = {template:name_string};
+        tags_check[curr_level]=temp;
+    
+    }
+    if(current ==0 )
+    {
+        var chart = new OrgChart(document.getElementById("hello"), {
+
+            mouseScrool: OrgChart.action.scroll,
+            // gives different hierarchy mixed
+            layout: OrgChart.mixed, 
+            nodeMouseClick: OrgChart.action.none,
+            orientation: OrgChart.orientation.left_top,
+            // height:100,
+    
+            template: "myTemplate",
+            
+            tags : tags_check,
+            miniMap: true,
+            nodeBinding: {
+                field_0: "name",
+                field_2:"work",
+                field_1:"mobile",
+                img_0 : "img",
+                field_3:"link",
+                field_4:"latitude",
+                field_5:"longitude"
+                
+            },
+            toolbar: {
+                fullScreen: true,
+                zoom: true,
+                fit: true,
+                expandAll: true
+              },
+            nodes: nodes
+        });
+        current = 1;
+    }
+    else{
+        var chart = new OrgChart(document.getElementById("hello"), {
+
+            mouseScrool: OrgChart.action.scroll,
+            // gives different hierarchy mixed
+            layout: OrgChart.mixed, 
+            nodeMouseClick: OrgChart.action.none,
+            orientation: OrgChart.orientation.top,
+            // height:100,
+    
+            template: "myTemplate",
+            
+            tags : tags_check,
+            miniMap: true,
+            nodeBinding: {
+                field_0: "name",
+                field_2:"work",
+                field_1:"mobile",
+                img_0 : "img",
+                field_3:"link",
+                field_4:"latitude",
+                field_5:"longitude"
+                
+            },
+            toolbar: {
+                fullScreen: true,
+                zoom: true,
+                fit: true,
+                expandAll: true
+              },
+            nodes: nodes
+        });
+        current = 0;
+    }
+    
+}
 
 
 angular.
@@ -133,14 +229,13 @@ angular.
             }   
             
            
-            
             this.chart = new OrgChart(document.getElementById("hello"), {
 
                 mouseScrool: OrgChart.action.scroll,
                 // gives different hierarchy mixed
                 layout: OrgChart.mixed, 
                 nodeMouseClick: OrgChart.action.none,
-                orientation: OrgChart.orientation.left_top,
+                orientation: OrgChart.orientation.top,
                 // height:100,
 
                 template: "myTemplate",
@@ -166,6 +261,8 @@ angular.
                 nodes: nodes
             });
 
+            
+
             // console.log(this.chart._layoutConfigs["base"]["orientation"]);
             // this.chart._layoutConfigs["base"]["orientation"] = 3;
             // console.log(this.chart._layoutConfigs["base"]["orientation"]);
@@ -186,5 +283,6 @@ angular.
         },
         
     });
+
 
 

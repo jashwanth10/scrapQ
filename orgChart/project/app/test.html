@@ -14,7 +14,7 @@
           <script src="lib/angular-route/angular-route.js"></script>
 </head> 
 <body>
-  <div id="map" style="width: 500px; height: 400px;"></div>
+  <div id="map" style="width: 1500px; height: 1000px;"></div>
   <div id="data" style="width: 500px; height: 400px;"></div>
 
 
@@ -24,8 +24,8 @@
     console.log(locations);
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(-33.92, 151.25),
+      zoom: 6,
+      center: new google.maps.LatLng(19, 79),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -33,13 +33,24 @@
 
     var marker, i;
 
+    // map.center({lat:20,long:79});  
     for (i = 0; i < locations.length; i++) {  
+      var icon = {
+        url: locations[i][3], // url
+        scaledSize: new google.maps.Size(20, 20), // size
+    };
+
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
+        map: map,
+        icon:icon,
+        // title:"heiiii",
+        
+
+        // setContent:locations[i][0]
       });
 
-      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
         return function() {
           infowindow.setContent(locations[i][0]);
           infowindow.open(map, marker);
