@@ -54,28 +54,46 @@ function traverse(node,level){
     nodeDict[node.userId] = node;
 
     var temp;
-    temp = {
-            "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
-            "img": "https://cdn.balkan.app/shared/3.jpg","mobile":"Mobile:"+ node.userMobile,
-            "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>Location</a>`,
-            "latitude":node.latitude,
-            "longitude":node.longitude,
-        };
+    // console.log(node);
+    
     // for img node.img should be used if we have images
     // console.log(temp);
+    var immediate_children = 0;
+    if('children' in node)
+    {
+        // console.log(node.children.length,"hellooo");
+        immediate_children = node.children.length;
 
-    nodes.push(temp)
+    }
+    
+    var count_children = 0;
+    
+
     if('children' in node){
         node.children.forEach(element => {
-            traverse(element,level+1);
+            count_children = count_children+ traverse(element,level+1);
             if(level+1>max_level)
             {
                 max_level = level+1;
             }
         });
+        
     }
+    temp = {
+        "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
+        "img": "https://cdn.balkan.app/shared/3.jpg","mobile":"Mobile:"+ node.userMobile,
+        "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>Location</a>`,
+        "latitude":node.latitude,
+        "longitude":node.longitude,
+        "immediate_children" : immediate_children,
+        "count_children" : count_children,
+        "map_icon" : "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png"
+    };
+    console.log(temp);
+    nodes.push(temp);
+    return count_children+1;
+    
 }
-
 
 OrgChart.templates.myTemplate = Object.assign({}, OrgChart.templates.ula);
 OrgChart.templates.myTemplate.node = '<circle cx="100" cy="100" r="100" fill="#4D4D4D" stroke-width="1" stroke="#1C1C1C"></circle>'; 
@@ -99,8 +117,17 @@ OrgChart.templates.yellow.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-wid
 // var just_name = 
 // OrgChart.templates.node_1 = Object.assign({}, OrgChart.templates.ula);
 // OrgChart.templates.node_1.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="pink"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
+// OrgChart.templates.ula.field_3 = 
+// '<text class="field_3" style="font-size: 14px;" fill="#000000" x="120" y="100" text-anchor="right-bottom">{val}</text>';
+OrgChart.templates.ula.field_6 = 
+'<text class="field_6" style="font-size: 14px;" fill="#000000" x="120" y="100" >{val}</text>';
 OrgChart.templates.ula.field_3 = 
-'<text class="field_3" style="font-size: 14px;" fill="#000000" x="120" y="100" text-anchor="right-bottom">{val}</text>';
+'<text class="field_3" style="font-size: 14px;" fill="#000000" x="180" y="20" text-anchor="top-right">{val}</text>';
+OrgChart.templates.ula.img_1 = '<image  xlink:href="{val}" x="180" y="1" width="30" height="30"><a</image>';
+OrgChart.templates.ula.field_7 = 
+'<text class="field_6" style="font-size: 14px;" fill="#000000" x="150" y="100" >{val}</text>';
+
+
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -136,7 +163,11 @@ function toggle_button(){
                 img_0 : "img",
                 field_3:"link",
                 field_4:"latitude",
-                field_5:"longitude"
+                field_5:"longitude",
+                field_6 : "immediate_children",
+                field_7: "count_children",
+                img_1 :"map_icon"
+
                 
             },
             toolbar: {
@@ -170,7 +201,10 @@ function toggle_button(){
                 img_0 : "img",
                 field_3:"link",
                 field_4:"latitude",
-                field_5:"longitude"
+                field_5:"longitude",
+                field_6:"immediate_children",
+                field_7: "count_children",
+                img_1 :"map_icon"
                 
             },
             toolbar: {
@@ -233,7 +267,10 @@ angular.
                     img_0 : "img",
                     field_3:"link",
                     field_4:"latitude",
-                    field_5:"longitude"
+                    field_5:"longitude",
+                    field_6 : "immediate_children",
+                    field_7: "count_children",
+                    img_1 :"map_icon"
                     
                 },
                 toolbar: {

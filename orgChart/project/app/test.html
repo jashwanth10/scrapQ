@@ -22,10 +22,19 @@
   
     var locations = JSON.parse(localStorage["data"]);
     console.log(locations);
+    var mean_lat =0;
+    var mean_long =0;
+    for(var i=0;i<locations.length;i++)
+    {
+      mean_lat = mean_lat+locations[i][1];
+      mean_long = mean_long+locations[i][2];
+    }
+    mean_lat = mean_lat/locations.length;
+    mean_long = mean_long/locations.length;
 
     var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 6,
-      center: new google.maps.LatLng(19, 79),
+      zoom: 3,
+      center: new google.maps.LatLng(mean_lat, mean_long),
       mapTypeId: google.maps.MapTypeId.ROADMAP
     });
 
@@ -52,7 +61,8 @@
 
       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          var mssg = locations[i][0] + "<br>" + "hello";
+          infowindow.setContent(mssg);
           infowindow.open(map, marker);
         }
       })(marker, i));
