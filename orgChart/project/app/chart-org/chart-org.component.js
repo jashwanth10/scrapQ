@@ -17,8 +17,8 @@ var location_map = []
 function setData(node){
     // console.log(nodeDict[node]);
     location_map = [];
+    console.log("AJKSA", node)
     locationTraverse(nodeDict[node]);
-    
     var locations = [
         ['Bondi Beach', -33.890542, 151.274856, 4],
         ['Coogee Beach', -33.923036, 151.259052, 5],
@@ -82,12 +82,11 @@ function traverse(node,level){
     temp = {
         "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
         "img": "https://cdn.balkan.app/shared/3.jpg","mobile":"Mobile:"+ node.userMobile,
-        "link":`<a target="_blank" href="../test.html" onClick={setData('${node.userId}')}>Location</a>`,
+        "link": `setData('${node.userId}')`,
         "latitude":node.latitude,
         "longitude":node.longitude,
         "immediate_children" : immediate_children,
         "count_children" : count_children,
-        "map_icon" : "https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png"
     };
     console.log(temp);
     nodes.push(temp);
@@ -121,9 +120,7 @@ OrgChart.templates.yellow.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-wid
 // '<text class="field_3" style="font-size: 14px;" fill="#000000" x="120" y="100" text-anchor="right-bottom">{val}</text>';
 OrgChart.templates.ula.field_6 = 
 '<text class="field_6" style="font-size: 14px;" fill="#000000" x="120" y="100" >{val}</text>';
-OrgChart.templates.ula.field_3 = 
-'<text class="field_3" style="font-size: 14px;" fill="#000000" x="180" y="20" text-anchor="top-right">{val}</text>';
-OrgChart.templates.ula.img_1 = '<image  xlink:href="{val}" x="180" y="1" width="30" height="30"><a</image>';
+OrgChart.templates.ula.field_3 = '<a target="_blank" href="../test.html" onClick={val}><image  xlink:href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" x="180" y="1" width="30" height="30"/></a>';
 OrgChart.templates.ula.field_7 = 
 '<text class="field_6" style="font-size: 14px;" fill="#000000" x="150" y="100" >{val}</text>';
 
