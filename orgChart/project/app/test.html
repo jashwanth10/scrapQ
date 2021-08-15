@@ -61,7 +61,9 @@
 
       google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
         return function() {
-          var mssg = locations[i][0] + "<br>" + "hello";
+          var mssg ="";
+          mssg= mssg+ "Name :" +locations[i][0] + "<br>" + "Mobile No :" + locations[i][4];
+          mssg = mssg+ "<br>" + "Type :" + locations[i][5];
           infowindow.setContent(mssg);
           infowindow.open(map, marker);
         }

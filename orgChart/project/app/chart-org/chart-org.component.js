@@ -19,13 +19,6 @@ function setData(node){
     location_map = [];
     console.log("AJKSA", node)
     locationTraverse(nodeDict[node]);
-    var locations = [
-        ['Bondi Beach', -33.890542, 151.274856, 4],
-        ['Coogee Beach', -33.923036, 151.259052, 5],
-        ['Cronulla Beach', -34.028249, 151.157507, 3],
-        ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
-        ['Maroubra Beach', -33.950198, 151.259302, 1]
-      ];
     localStorage["data"]  = JSON.stringify(location_map);
 }
 
@@ -38,7 +31,7 @@ function locationTraverse(node){
 
     // for checking purpose, for usage uncomment above one
 
-    temp = [node.userName,Math.random()*100,Math.random()*100,"https://cdn.balkan.app/shared/3.jpg"]
+    temp = [node.userName,Math.random()*100,Math.random()*100,"https://cdn.balkan.app/shared/3.jpg",node.userMobile,node.userType]
     // console.log(temp);
     location_map.push(temp);
     if('children' in node){
@@ -86,8 +79,8 @@ function traverse(node,level){
         "link": `setData('${node.userId}')`,
         "latitude":node.latitude,
         "longitude":node.longitude,
-        "immediate_children" :"Immediate :"+immediate_children,
-        "count_children" : "Total :"+count_children,
+        "immediate_children" :"Immediate Reportees:"+immediate_children,
+        "count_children" : "Total Reportees:"+count_children,
     };
     // console.log(temp);
     // console.log(temp);
@@ -121,12 +114,13 @@ OrgChart.templates.yellow.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-wid
 // OrgChart.templates.ula.field_3 = 
 // '<text class="field_3" style="font-size: 14px;" fill="#000000" x="120" y="100" text-anchor="right-bottom">{val}</text>';
 OrgChart.templates.ula.field_6 = 
-'<text class="field_6" style="font-size: 14px;" fill="#000000" x="10" y="115" >{val}</text>';
+'<text style="font-size: 13px;" fill="#000000" x="5" y="135" >{val}</text>';
 OrgChart.templates.ula.field_2 = 
-'<text class="field_6" style="font-size: 13px;" fill="#00A000" x="100" y="100" >{val}</text>';
-OrgChart.templates.ula.field_3 = '<a target="_blank" href="../test.html" onClick={val}><image  xlink:href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" x="200" y="1" width="30" height="30"/></a>';
+'<text style="font-size: 13px;" fill="#00A000" x="100" y="100" >{val}</text>';
+OrgChart.templates.ula.field_3 = '<a target="_blank" href="../test.html" onClick={val}><image  xlink:href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" x="250" y="1" width="30" height="30"/></a>';
 OrgChart.templates.ula.field_7 = 
-'<text class="field_6" style="font-size: 13px;" fill="#000000" x="190" y="115" >{val}</text>';
+'<text style="font-size: 13px;border: 2px solid black;" fill="#000000" x="180" y="135" >{val}</text>';
+ OrgChart.templates.ula.size = [300, 150];
 
 
 function getRandomColor() {
@@ -149,6 +143,7 @@ function toggle_button(){
             mouseScrool: OrgChart.action.scroll,
             // gives different hierarchy mixed
             layout: OrgChart.mixed, 
+            mixedHierarchyNodesSeparation: 50,
             nodeMouseClick: OrgChart.action.none,
             orientation: OrgChart.orientation.left_top,
             // height:100,
@@ -187,6 +182,7 @@ function toggle_button(){
             mouseScrool: OrgChart.action.scroll,
             // gives different hierarchy mixed
             layout: OrgChart.mixed, 
+            mixedHierarchyNodesSeparation: 50,
             nodeMouseClick: OrgChart.action.none,
             orientation: OrgChart.orientation.top,
             // height:100,
@@ -236,7 +232,7 @@ angular.
                 var stroke_color = getRandomColor()
 
                 // OrgChart.templates[name_string].node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="pink"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
-                OrgChart.templates[name_string].node = `<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="${stroke_color}"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>`
+                OrgChart.templates[name_string].node = `<line x1="0" y1="0" x2="300" y2="0" stroke-width="20" stroke="${stroke_color}"></line>' +'<rect x="0" y="0" height="150" width="300" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>`
                 // console.log(stroke_color,"strokee colorrr");
                 // OrgChart.templates.name_string.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-width="20" stroke="black"></line>' +'<rect x="0" y="0" height="120" width="250" fill="#ffffff" stroke-width="1" stroke="#aeaeae"></rect>'
                 var temp;
@@ -252,6 +248,8 @@ angular.
                 mouseScrool: OrgChart.action.scroll,
                 // gives different hierarchy mixed
                 layout: OrgChart.mixed, 
+                mixedHierarchyNodesSeparation: 50,
+                // subtreeSeparation: 100,
                 nodeMouseClick: OrgChart.action.none,
                 orientation: OrgChart.orientation.top,
                 // height:100,
@@ -304,6 +302,3 @@ angular.
         },
         
     });
-
-
-
