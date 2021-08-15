@@ -2,7 +2,7 @@
   "_args": [
     [
       "angular-mocks@1.7.5",
-      "/home/diraac/scrapQ/orgChart/project"
+      "/home/anudeep/scrapQ/orgChart/project"
     ]
   ],
   "_development": true,
@@ -27,7 +27,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/angular-mocks/-/angular-mocks-1.7.5.tgz",
   "_spec": "1.7.5",
-  "_where": "/home/diraac/scrapQ/orgChart/project",
+  "_where": "/home/anudeep/scrapQ/orgChart/project",
   "author": {
     "name": "Angular Core Team",
     "email": "angular-core+npm@google.com"

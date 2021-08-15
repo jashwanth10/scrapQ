@@ -81,14 +81,16 @@ function traverse(node,level){
     }
     temp = {
         "id": node.userId,"pid":node.ownerId, "name": node.userName,"tags":[(level).toString()],
+        "work" : node.userType,
         "img": "https://cdn.balkan.app/shared/3.jpg","mobile":"Mobile:"+ node.userMobile,
         "link": `setData('${node.userId}')`,
         "latitude":node.latitude,
         "longitude":node.longitude,
-        "immediate_children" : immediate_children,
-        "count_children" : count_children,
+        "immediate_children" :"Immediate :"+immediate_children,
+        "count_children" : "Total :"+count_children,
     };
-    console.log(temp);
+    // console.log(temp);
+    // console.log(temp);
     nodes.push(temp);
     return count_children+1;
     
@@ -119,10 +121,12 @@ OrgChart.templates.yellow.node = '<line x1="0" y1="0" x2="250" y2="0" stroke-wid
 // OrgChart.templates.ula.field_3 = 
 // '<text class="field_3" style="font-size: 14px;" fill="#000000" x="120" y="100" text-anchor="right-bottom">{val}</text>';
 OrgChart.templates.ula.field_6 = 
-'<text class="field_6" style="font-size: 14px;" fill="#000000" x="120" y="100" >{val}</text>';
-OrgChart.templates.ula.field_3 = '<a target="_blank" href="../test.html" onClick={val}><image  xlink:href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" x="180" y="1" width="30" height="30"/></a>';
+'<text class="field_6" style="font-size: 14px;" fill="#000000" x="10" y="115" >{val}</text>';
+OrgChart.templates.ula.field_2 = 
+'<text class="field_6" style="font-size: 13px;" fill="#00A000" x="100" y="100" >{val}</text>';
+OrgChart.templates.ula.field_3 = '<a target="_blank" href="../test.html" onClick={val}><image  xlink:href="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678111-map-marker-512.png" x="200" y="1" width="30" height="30"/></a>';
 OrgChart.templates.ula.field_7 = 
-'<text class="field_6" style="font-size: 14px;" fill="#000000" x="150" y="100" >{val}</text>';
+'<text class="field_6" style="font-size: 13px;" fill="#000000" x="190" y="115" >{val}</text>';
 
 
 function getRandomColor() {
@@ -163,7 +167,7 @@ function toggle_button(){
                 field_5:"longitude",
                 field_6 : "immediate_children",
                 field_7: "count_children",
-                img_1 :"map_icon"
+
 
                 
             },
@@ -201,7 +205,6 @@ function toggle_button(){
                 field_5:"longitude",
                 field_6:"immediate_children",
                 field_7: "count_children",
-                img_1 :"map_icon"
                 
             },
             toolbar: {
@@ -267,7 +270,7 @@ angular.
                     field_5:"longitude",
                     field_6 : "immediate_children",
                     field_7: "count_children",
-                    img_1 :"map_icon"
+
                     
                 },
                 toolbar: {
